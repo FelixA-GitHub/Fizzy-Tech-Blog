@@ -2,7 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 //gives us info about not only each post, but also the user that posted it
 //with the foreign key we can perform a JOIN
-const { Blog, User } = require('../../models');
+const { Blog, User, Comment } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
@@ -17,14 +17,14 @@ router.get('/', (req, res) => {
         ],
         include: [
             // include the Comment model here:
-            // {
-            //     model: Comment,
-            //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-            //     include: {
-            //         model: User,
-            //         attributes: ['username']
-            //     }
-            // },
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'blog_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
             {
                 model: User,
                 attributes: ['username']
@@ -51,14 +51,14 @@ router.get('/:id', (req, res) => {
             'created_at',
         ],
         include: [
-            // {
-            //     model: Comment,
-            //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-            //     include: {
-            //         model: User,
-            //         attributes: ['username']
-            //     }
-            // },
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'blog_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
             {
                 model: User,
                 attributes: ['username']

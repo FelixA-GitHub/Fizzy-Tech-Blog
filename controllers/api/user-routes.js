@@ -14,7 +14,45 @@ router.get('/', (req, res) => {
 });
 
 // get user by id
-
+router.get('/:id', (req, res) => {
+    User.findOne({
+      attributes: { exclude: ['password'] },
+      where: {
+        id: req.params.id
+      },
+      include: [
+        {
+          model: Blog,
+          attributes: ['id', 'title', 'blog_url', 'created_at']
+        },
+        {
+          model: Comment,
+          attributes: ['id', 'comment_text', 'created_at'],
+          include: {
+            model: Blog,
+            attributes: ['title']
+          }
+        },
+        // {
+        //   model: Blog,
+        //   attributes: ['title'],
+        //   through: Vote,
+        //   as: 'voted_posts'
+        // }
+      ]
+    })
+      .then(dbUserData => {
+        if (!dbUserData) {
+          res.status(404).json({ message: 'No user found with this id' });
+          return;
+        }
+        res.json(dbUserData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 
 // post user create
 router.post('/', (req, res) => {
