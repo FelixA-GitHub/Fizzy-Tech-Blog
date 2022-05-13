@@ -11,19 +11,19 @@
 <body>
   <div class="wrapper">
     <header>
+      <nav>
+        <a href="/homepage">Homepage</a>
+        <a href="/dashboard">Dashboard</a>
+        {{#if loggedIn}}
+        {{!-- <a href="/dashboard">dashboard</a> --}}
+        <button id="logout" class="btn-no-style">Logout</button>
+        {{else}}
+        <a href="/login">Login</a>
+        {{/if}}
+      </nav>
       <h1>
         <a href="/">Fizzy Blog</a>
       </h1>
-      <nav>
-        <a href="/homepage">homepage</a>
-        <a href="/dashboard">dashboard</a>
-        {{#if loggedIn}}
-        {{!-- <a href="/dashboard">dashboard</a> --}}
-        <button id="logout" class="btn-no-style">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
     </header>
     <main>
       {{{ body }}}
