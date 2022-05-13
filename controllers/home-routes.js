@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const res = require('express/lib/response');
 const sequelize = require('../config/connection');
 const { User, Blog, Comment } = require('../models');
 
@@ -126,6 +127,7 @@ router.get('/blog/:id', (req, res) => {
     });
 });
 
+// login router
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
@@ -133,6 +135,15 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+// signup router
+router.get('/signup', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('signup');
+  } else {
+    res.redirect('/');
+  }
 });
 
 module.exports = router;
