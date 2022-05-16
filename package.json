@@ -8,6 +8,10 @@
     "seeds": "node seeds/index.js",
     "start": "nodemon server.js"
   },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
