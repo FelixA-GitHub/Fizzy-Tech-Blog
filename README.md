@@ -57,7 +57,7 @@
 ```
 
 ## Mock Up
-![fizzyblog Screenshot](/images/Fizzy-Blog-Mockup.png)
+![fizzyblog Screenshot](./public/images/Fizzy-Blog-Mockup.png)
 
 ## Heroku Deployment
 https://quiet-refuge-09071.herokuapp.com/homepage
