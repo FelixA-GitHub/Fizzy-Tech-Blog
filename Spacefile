@@ -1,7 +1,0 @@
-# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
-v: 0
-micros:
-  - name: fizzy-tech-blog
-    src: src/node
-    engine: nodejs16
-    run: "node server.js"
