@@ -2,6 +2,6 @@
 v: 0
 micros:
   - name: fizzy-tech-blog
-    src: .
+    src: src/node
     engine: nodejs16
-    primary: true
+    run: "node server.js"
