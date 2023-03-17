@@ -14,7 +14,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@cyclic.sh/dynamodb": "^0.0.33",
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.3",
     "dotenv": "^16.0.1",
